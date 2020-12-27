@@ -113,6 +113,10 @@ class ReplaceEncrypt(Encrypt):
                             encrypt_text_list[line]+=key[2]
                             flag=1
                             break
+                        elif key[0].upper == symbol:
+                            encrypt_text_list[line]+=key[2].upper
+                            flag=1
+                            break
                     if flag == 0:
                         encrypt_text_list[line]+=symbol
                         without_symbols+=symbol
@@ -141,6 +145,10 @@ class ReplaceEncrypt(Encrypt):
                     for key in key_list:
                         if key[2] == symbol:
                             decrypt_text_list[line]+=key[0]
+                            flag=1
+                            break
+                        elif key[2].upper == symbol:
+                            encrypt_text_list[line]+=key[0].upper
                             flag=1
                             break
                     if flag == 0:
